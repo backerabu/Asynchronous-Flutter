@@ -9,7 +9,7 @@ Asynchronous programming is a fundamental concept in modern software development
 In Dart and Flutter, you can use the async and await keywords to manage asynchronous operations. When you mark a function as async, you're telling Dart that the function may contain asynchronous code that should be executed in a separate, non-blocking task. The await keyword is used in conjunction with async to pause execution until the awaited Future completes1.
 
 Here's an example of how to use async and await:
-
+```
 Future<int> fetchData() async {
  await Future.delayed(Duration(seconds: 3));
  return 42;
@@ -18,6 +18,7 @@ Future<int> fetchData() async {
 void main() {
  fetchData().then((data) => print(data));
 }
+```
 In this example, the fetchData function is marked as async, so Dart knows that the function may contain asynchronous code. The fetchData function uses await to wait for a Future to complete, which simulates a long-running task like a network request. The then method is used to handle the result of the Future, which is the int value 422.
 
 Streams in Flutter
@@ -28,17 +29,18 @@ To create a stream, you start with a StreamController. This constructs a control
 StreamController<double> controller = StreamController<double>();
 Stream stream = controller.stream;
 To get the values from a stream, you subscribe to the stream by calling the listen function and supplying it with a function to call back when there's a new value available:
-
+```
 stream.listen((value) {
  print('Value from controller: $value');
 });
+```
 In this example, every time a new value is added to the stream, the listen function prints the new value3.
 
 StreamBuilder in Flutter
 StreamBuilder is a widget that builds itself based on the latest snapshot of interaction with a stream. It's mainly used in applications where the widget needs to rebuild itself to show the current snapshot of data5.
 
 Here's an example of how to use StreamBuilder:
-
+```
 StreamBuilder<int>(
  stream: _counterController.counterStream,
  initialData: 0,
@@ -50,13 +52,14 @@ StreamBuilder<int>(
     }
  }
 )
+```
 In this example, StreamBuilder listens to _counterController.counterStream. If the stream has data, it displays the counter value. Otherwise, it displays "Empty data"5.
 
 FutureBuilder in Flutter
 FutureBuilder is similar to StreamBuilder, but it works with Future objects instead of streams. It's useful when you have a single asynchronous operation that produces a value and you want to build your widget tree based on the result of that operation.
 
 Here's an example of how to use FutureBuilder:
-
+```
 FutureBuilder<String>(
  future: fetchUsername(),
  builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
@@ -69,4 +72,5 @@ FutureBuilder<String>(
     }
  },
 )
+```
 In this example, FutureBuilder waits for the fetchUsername() future to complete. While it's waiting, it displays a loading indicator. If the future completes with an error, it displays the error message. Otherwise, it displays the username4.
