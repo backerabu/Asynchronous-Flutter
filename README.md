@@ -34,7 +34,7 @@ stream.listen((value) {
  print('Value from controller: $value');
 });
 ```
-In this example, every time a new value is added to the stream, the listen function prints the new value3.
+In this example, every time a new value is added to the stream, the listen function prints the new value.
 
 StreamBuilder in Flutter
 StreamBuilder is a widget that builds itself based on the latest snapshot of interaction with a stream. It's mainly used in applications where the widget needs to rebuild itself to show the current snapshot of data5.
@@ -73,4 +73,4 @@ FutureBuilder<String>(
  },
 )
 ```
-In this example, FutureBuilder waits for the fetchUsername() future to complete. While it's waiting, it displays a loading indicator. If the future completes with an error, it displays the error message. Otherwise, it displays the username4.
+In this example, FutureBuilder waits for the fetchUsername() future to complete. While it's waiting, it displays a loading indicator. If the future completes with an error, it displays the error message. Otherwise, it displays the username.
